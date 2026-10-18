@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">appQuiz</string>
+    <string name="pregunta_n_de_total">Pregunta %1$d de %2$d</string>
+    <string name="selecciona_respuesta">Selecciona la respuesta correcta</string>
+    <string name="tu_seleccion">Tu selección</string>
+    <string name="titulo_inicio">Quiz de Estudio</string>
+    <string name="empezar">Empezar</string>
+    <string name="resultados">Resultados</string>
+    <string name="porcentaje">%1$d %%</string>
+    <string name="aciertos_errores">Aciertos: %1$d · Errores: %2$d</string>
+    <string name="mensaje_excelente">¡Excelente trabajo!</string>
+    <string name="mensaje_regular">Vas bien, sigue practicando</string>
+    <string name="mensaje_repasar">Te conviene repasar</string>
+    <string name="jugar_de_nuevo">Jugar de nuevo</string>
+    <string name="volver_al_inicio">Volver al inicio</string>
+</resources>
