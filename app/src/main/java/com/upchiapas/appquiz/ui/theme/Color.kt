@@ -15,3 +15,9 @@ val OpcionNaranja = Color(0xFFF97316)
 val OpcionTurquesa = Color(0xFF2DD4BF)
 val Correcto = Color(0xFF14532D)     // fondo verde oscuro
 val Incorrecto = Color(0xFF7F1D1D)   // fondo rojo oscuro
+
+val CategoriaTodas = Color(0xFF9CA3AF)
+val CategoriaJava = Color(0xFFF97316)
+val CategoriaSql = Color(0xFFD946EF)
+val CategoriaCpp = Color(0xFF22D3EE)
+val CategoriaKotlin = Color(0xFFFACC15)
