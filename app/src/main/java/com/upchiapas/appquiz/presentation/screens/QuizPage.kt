@@ -27,6 +27,7 @@ import com.upchiapas.appquiz.ui.theme.AppQuizTheme   // el nombre que veas en Th
 fun QuizPage(
     viewModel: QuizViewModel = viewModel(
         factory = (LocalContext.current.applicationContext as QuizApplication).quizModule.factory
+
     )
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -36,7 +37,8 @@ fun QuizPage(
         onEmpezar = { viewModel.onEmpezar() },
         onOpcionElegida = { opcion -> viewModel.onOpcionElegida(opcion) },
         onJugarDeNuevo = { viewModel.onJugarDeNuevo() },
-        onVolverAlInicio = { viewModel.onVolverAlInicio() }
+        onVolverAlInicio = { viewModel.onVolverAlInicio() },
+        onCategoriaSeleccionada = { categoria -> viewModel.onCategoriaSeleccionada(categoria) },
     )
 }
 @Composable
@@ -46,7 +48,8 @@ fun QuizContent(
     onOpcionElegida: (String) -> Unit,
     onJugarDeNuevo: () -> Unit,
     onVolverAlInicio: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onCategoriaSeleccionada:(Categoria?) -> Unit,
 ) {
     Scaffold(modifier = modifier) { padding ->
         Box(
@@ -57,7 +60,11 @@ fun QuizContent(
             contentAlignment = Alignment.Center
         ) {
             when (uiState.fase) {
-                Fase.INICIO -> InicioContent(onEmpezar = onEmpezar)
+                Fase.INICIO -> InicioContent(
+                    categoriaSeleccionada = uiState.categoriaSeleccionada,
+                    onCategoriaSeleccionada = onCategoriaSeleccionada,
+                    onEmpezar = onEmpezar
+                )
                 Fase.JUGANDO -> PreguntaContent(uiState = uiState, onOpcionElegida = onOpcionElegida)
                 Fase.RESULTADOS -> ResultadosContent(
                     uiState = uiState,
@@ -75,7 +82,7 @@ private fun QuizContentInicioPreview() {
     AppQuizTheme {
         QuizContent(
             uiState = QuizUiState(),
-            onEmpezar = {}, onOpcionElegida = {}, onJugarDeNuevo = {}, onVolverAlInicio = {}
+            onEmpezar = {}, onOpcionElegida = {}, onJugarDeNuevo = {}, onVolverAlInicio = {},
         )
     }
 }
@@ -87,7 +94,7 @@ private fun QuizContentResultadosPreview() {
     AppQuizTheme {
         QuizContent(
             uiState = QuizUiState(fase = Fase.RESULTADOS, preguntas = diez, correctas = 8, incorrectas = 2),
-            onEmpezar = {}, onOpcionElegida = {}, onJugarDeNuevo = {}, onVolverAlInicio = {}
+            onEmpezar = {}, onOpcionElegida = {}, onJugarDeNuevo = {}, onVolverAlInicio = {},
         )
     }
 }

@@ -14,7 +14,7 @@ data class QuizUiState(
     val opcionesActuales: List<String> = emptyList(),
     val opcionElegida: String? = null,
     val correctas: Int = 0,
-    val incorrectas: Int = 0
+    val incorrectas: Int = 0,
 ) {
     val total: Int
         get() = preguntas.size
