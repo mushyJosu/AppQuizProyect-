@@ -2,10 +2,23 @@ package com.upchiapas.appquiz.presentation.screens
 import com.upchiapas.appquiz.data.model.Categoria
 import com.upchiapas.appquiz.data.model.Pregunta
 
-enum class Fase { INICIO, JUGANDO, RESULTADOS }
+enum class Fase { INICIO, JUGANDO, RESULTADOS, AGREGAR}
 
-enum class MensajeFinal { EXCELENTE, REGULAR, REPASAR }
+enum class MensajeFinal { EXCELENTE, REGULAR, REPASAR}
 
+data class FormularioState(
+    val enunciado: String= "",
+    val opciones: List<String> = List(4){""},
+    val indiceCorrecta: Int? = null,
+    val categoria: Categoria? = null
+){
+    val puedeGuardar: Boolean
+        get() = enunciado.isNotBlank() &&
+                opciones.all { it.isNotBlank() } &&
+                opciones.map { it.trim() }.toSet().size == opciones.size &&
+                indiceCorrecta != null &&
+                categoria != null
+}
 data class QuizUiState(
     val fase: Fase = Fase.INICIO,
     val categoriaSeleccionada: Categoria? = null,
@@ -15,7 +28,10 @@ data class QuizUiState(
     val opcionElegida: String? = null,
     val correctas: Int = 0,
     val incorrectas: Int = 0,
-) {
+    val formulario: FormularioState = FormularioState(),
+    val avisoGuardado: Boolean= false
+)
+ {
     val total: Int
         get() = preguntas.size
 
