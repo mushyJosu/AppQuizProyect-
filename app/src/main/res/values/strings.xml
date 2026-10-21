@@ -13,4 +13,26 @@
     <string name="mensaje_repasar">Te conviene repasar</string>
     <string name="jugar_de_nuevo">Jugar de nuevo</string>
     <string name="volver_al_inicio">Volver al inicio</string>
+    <string name="elige_categoria"> Elige una categoria</string>
+    <string name="categoria_todas">Todas</string>
+    <string name="categoria_java">Java</string>
+    <string name="categoria_sql">SQL</string>
+    <string name="categoria_cpp">C++</string>
+    <string name="categoria_kotlin">Kotlin</string>
+    <string name="marcador_total">Total</string>
+    <string name="marcador_correctas">Correctas</string>
+    <string name="marcador_incorrectas">Incorrectas</string>
+    <string name="marcador_restantes">Restantes</string>
+    <string name="agregar_pregunta">Agregar pregunta</string>
+    <string name="form_pregunta">Pregunta</string>
+    <string name="form_marca_correcta">Marca la opción correcta</string>
+    <string name="form_ayuda_correcta">Selecciona el círculo de la respuesta válida y completa las alternativas.</string>
+    <string name="form_opcion">Opción %1$s</string>
+    <string name="form_categoria">Categoría</string>
+    <string name="form_ayuda_guardar">Completa todos los campos, usa 4 opciones distintas y marca la correcta para habilitar el guardado.</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar_descartar">Cancelar y descartar</string>
+    <string name="pregunta_guardada">Pregunta guardada</string>
+    <string name="sesion_de_quiz">Sesión de quiz</string>
+    <string name="abandonar_partida">Abandonar la partida</string>
 </resources>
