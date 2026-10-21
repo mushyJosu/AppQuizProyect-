@@ -96,7 +96,6 @@ fun OpcionRespuesta(
     }
 }
 
-// La Preview debe ir FUERA de la función OpcionRespuesta
 @Preview(showBackground = true)
 @Composable
 private fun OpcionRespuestaEstadosPreview() {
