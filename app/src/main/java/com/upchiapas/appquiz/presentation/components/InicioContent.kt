@@ -1,35 +1,33 @@
 package com.upchiapas.appquiz.presentation.components
 
-import android.view.Surface
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.upchiapas.appquiz.R
 import com.upchiapas.appquiz.data.model.Categoria
-import com.upchiapas.appquiz.presentation.screens.QuizPage
 import com.upchiapas.appquiz.ui.theme.AppQuizTheme
 import com.upchiapas.appquiz.ui.theme.CategoriaTodas
 
 @Composable
 fun InicioContent(
-    CategoriaSeleccionada: Categoria?,
+    categoriaSeleccionada: Categoria?,
     onCategoriaSeleccionada: (Categoria?) -> Unit,
     onEmpezar: () -> Unit,
+    onAgregarPregunta: () -> Unit,
     modifier: Modifier = Modifier
-){
+) {
     Column(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -45,32 +43,37 @@ fun InicioContent(
         CategoriaItem(
             nombre = stringResource(R.string.categoria_todas),
             colorPunto = CategoriaTodas,
-            seleccionada = CategoriaSeleccionada == null,
-            onClick = { onCategoriaSeleccionada(null)}
+            seleccionada = categoriaSeleccionada == null,
+            onClick = { onCategoriaSeleccionada(null) }
         )
         Categoria.entries.forEach { categoria ->
             CategoriaItem(
                 nombre = stringResource(categoria.nombreRes()),
                 colorPunto = categoria.color(),
-                seleccionada = CategoriaSeleccionada == categoria,
-                onClick = {onCategoriaSeleccionada(categoria)}
+                seleccionada = categoriaSeleccionada == categoria,
+                onClick = { onCategoriaSeleccionada(categoria) }
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
         Button(onClick = onEmpezar, modifier = Modifier.fillMaxWidth()) {
             Text(text = stringResource(R.string.empezar))
         }
+        OutlinedButton(onClick = onAgregarPregunta, modifier = Modifier.fillMaxWidth()) {
+            Text(text = stringResource(R.string.agregar_pregunta))
+        }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
-private fun InicioContentPreview(){
+private fun InicioContentPreview() {
     AppQuizTheme {
-        Surface{
+        Surface {
             InicioContent(
-               CategoriaSeleccionada = Categoria.SQL,
+                categoriaSeleccionada = Categoria.SQL,
                 onCategoriaSeleccionada = {},
-                onEmpezar = {}
+                onEmpezar = {},
+                onAgregarPregunta = {}
             )
         }
     }
