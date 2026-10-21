@@ -2,13 +2,6 @@ package com.upchiapas.appquiz.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
-
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
 val OpcionAzul = Color(0xFF4F8EF7)
 val OpcionMorado = Color(0xFF8B5CF6)
 val OpcionNaranja = Color(0xFFF97316)
@@ -21,3 +14,13 @@ val CategoriaJava = Color(0xFFF97316)
 val CategoriaSql = Color(0xFFD946EF)
 val CategoriaCpp = Color(0xFF22D3EE)
 val CategoriaKotlin = Color(0xFFFACC15)
+// Tema oscuro
+val FondoOscuro = Color(0xFF111111)
+val SuperficieOscura = Color(0xFF1F1F1F)
+val TextoClaro = Color(0xFFE8E8E8)
+val TextoSecundario = Color(0xFFC4C4C4)
+val AzulPrimario = Color(0xFF4F8EF7)
+val AzulContenedor = Color(0xFF1E3A6E)
+val TextoSobreAzul = Color(0xFF0B1B3A)
+val BordeOscuro = Color(0xFF444444)
+
